@@ -1,0 +1,25 @@
+<div>
+  <material-input label="Enter a sum"
+                  autoFocus floatingLabel style="width:80%"
+                  [(ngModel)]="newSum"
+                  (keyup.enter)="test()">
+  </material-input>
+
+  <material-fab mini raised
+                (trigger)="test()"
+                [disabled]="newSum.isEmpty">
+    <material-icon icon="add"></material-icon>
+  </material-fab>
+</div>
+
+<p *ngIf="items.isEmpty">
+  Nothing to give out! Add sum above.
+</p>
+
+<div *ngIf="items.isNotEmpty">
+  <ul>
+      <li *ngFor="let item of items; let i=index">
+        <span>{{item}}</span>
+      </li>
+  </ul>
+</div>
