@@ -1,0 +1,20 @@
+<div>
+  <material-input label="Enter a sum"
+                  autoFocus floatingLabel style="width:80%"
+                  [(ngModel)]="newSum"
+                  (keyup.enter)="billsCounter()">
+  </material-input>
+
+  <material-fab mini raised
+                (trigger)="billsCounter()"
+                [disabled]="newSum.isEmpty">
+    <material-icon icon="add"></material-icon>
+  </material-fab>
+</div>
+
+<ul>
+  <li *ngFor="let item of bills">
+    <span>Выдать: {{item.key}} - {{item.value}} шт.</span>
+  </li>
+</ul>
+
