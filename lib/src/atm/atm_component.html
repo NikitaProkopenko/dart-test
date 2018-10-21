@@ -2,24 +2,19 @@
   <material-input label="Enter a sum"
                   autoFocus floatingLabel style="width:80%"
                   [(ngModel)]="newSum"
-                  (keyup.enter)="test()">
+                  (keyup.enter)="billsCounter()">
   </material-input>
 
   <material-fab mini raised
-                (trigger)="test()"
+                (trigger)="billsCounter()"
                 [disabled]="newSum.isEmpty">
     <material-icon icon="add"></material-icon>
   </material-fab>
 </div>
 
-<p *ngIf="items.isEmpty">
-  Nothing to give out! Add sum above.
-</p>
+<ul>
+  <li *ngFor="let item of bills">
+    <span>Выдать: {{item.key}} - {{item.value}} шт.</span>
+  </li>
+</ul>
 
-<div *ngIf="items.isNotEmpty">
-  <ul>
-      <li *ngFor="let item of items; let i=index">
-        <span>{{item}}</span>
-      </li>
-  </ul>
-</div>
